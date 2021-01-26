@@ -29,6 +29,8 @@ var maxProfit = function(prices) {
     let minBuyPrice = prices[0]
     let maxProfit = 0
     
+    //check the array, if find price less when the 1st array element
+    // assign to min
     for (let price of prices) {
         if (price < minBuyPrice) {
             minBuyPrice = price
