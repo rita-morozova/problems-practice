@@ -40,12 +40,15 @@ var containsDuplicate = function(nums) {
 //runtime 88ms, O(n)
 
 var containsDuplicate = function(nums) {
+   //create an empty {}
     const hash = new Map();
   
-    for (const n of nums) {
-      if (hash.has(n)) return true;
-      //set stores value by the key, accepts key-value pair
-      hash.set(n, true);
+    //iterate over every element in array
+    for (const element of nums) {
+      //check if there is element already in the hash
+      if (hash.has(element)) return true;
+      //if there is no such element set it in the hash
+      hash.set(element, true); //hash = {1 => true}
     }
   
     return false;
@@ -55,5 +58,10 @@ var containsDuplicate = function(nums) {
   var containsDuplicate = function (nums) {
       //check if both arrays lengths are equal
     let result = new Set(nums).size != nums.length;
-    return firesult;
+    return result;
+  };
+
+  var containsDuplicate = function (nums) {
+    if(new Set(nums).size != nums.length) return true
+    return false
   };

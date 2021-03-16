@@ -11,7 +11,7 @@ var removeDuplicates = function(nums) {
     }
 };
 
-
+//runtime 108ms
 var removeDuplicates = function(nums) {
     let i=0;
     
