@@ -1,6 +1,6 @@
 // 
 
-
+//This one is easy because array is sorted, if not, we need to sort it first
 // runtime 96 ms
 var removeDuplicates = function(nums) {
     for (let i = 0; i < nums.length; i++) {
