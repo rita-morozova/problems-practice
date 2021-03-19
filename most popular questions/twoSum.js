@@ -1,6 +1,6 @@
 // 
 
-
+//O(n^2) Brute Force
 var twoSum = function(nums, target) {
   
     for(let i=0; i< nums.length; i++){
