@@ -32,7 +32,7 @@ function insertionSort(list) {
       let newValue = list[indexOfSortedSection] //9
       //swap 9 & 5; list[1] = 9
       list[indexOfSortedSection + 1] = newValue //list is [9, 9, 7, 3]
-      indexOfSortedSection-- // index -1
+      indexOfSortedSection-- // index is -1 now
     }
     list[indexOfSortedSection+1] = valueToInsert //list[0] = 5
   }
