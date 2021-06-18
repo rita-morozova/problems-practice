@@ -15,3 +15,28 @@ function insertionSort(arr) {
   }
   return arr
 }
+
+/////
+// O(n^2)
+let list = [9, 5, 7, 3]
+
+function insertionSort(list) {
+  
+  //always start with value of index 1, because list[0] is sorted
+  for (let index = 1; index < list.length; index++){
+  // start with list[0] on first iteration, cause its sorted
+    let indexOfSortedSection = index - 1
+    let valueToInsert = list[index] // need to insert 5 - list[1] 
+
+    while(list[indexOfSortedSection] > valueToInsert){ // 9>5
+      let newValue = list[indexOfSortedSection] //9
+      //swap 9 & 5; list[1] = 9
+      list[indexOfSortedSection + 1] = newValue //list is [9, 9, 7, 3]
+      indexOfSortedSection-- // index -1
+    }
+    list[indexOfSortedSection+1] = valueToInsert //list[0] = 5
+  }
+  return list
+}
+
+insertionSort(list)
