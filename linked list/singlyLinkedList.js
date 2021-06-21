@@ -1,3 +1,4 @@
+// Create Node.  It has a value and a pointer
 class Node{
     constructor(val){
         this.val = val;
@@ -5,12 +6,18 @@ class Node{
     }
 }
 
+// var first = new Node('First Node')
+// first.next = new Node('Second Node')
+// first.next.next = new Node('Third Node')
+
 class SinglyLinkedList{
+    // Creates an empty list
     constructor(){
         this.head = null;
         this.tail = null;
         this.length = 0;
     }
+    // Insert value - O(1)
     push(val){
         var newNode = new Node(val);
         if(!this.head){
@@ -23,24 +30,30 @@ class SinglyLinkedList{
         this.length++;
         return this;
     }
+    // Remove value - O(1) or O(n)
     pop(){
+        // if there are no nodes - return undefined
         if(!this.head) return undefined;
+        // start at very beginning
         var current = this.head;
         var newTail = current;
+        // while there is another node, tail set to current, current moved forward
         while(current.next){
             newTail = current;
             current = current.next;
         }
+        // tail is moved too; after tail there is nothing else
         this.tail = newTail;
         this.tail.next = null;
         this.length--;
+        // Handle empty line of nodes
         if(this.length === 0){
             this.head = null;
             this.tail = null;
         }
         return current;
     }
-
+    // Remove node at the beginning
     shift(){
         if(!this.head) return undefined;
         var currentHead = this.head;
@@ -51,6 +64,7 @@ class SinglyLinkedList{
         }
         return currentHead;
     }
+    // Add node at the beginning
     unshift(val){
         var newNode = new Node(val);
         if(!this.head) {
@@ -63,7 +77,8 @@ class SinglyLinkedList{
         this.length++;
         return this;
     }
-    get(index){
+    // Retrive Node by its position - O(n)
+    get(index){ //should accept index
         if(index < 0 || index >= this.length) return null;
         var counter = 0;
         var current = this.head;
@@ -73,7 +88,8 @@ class SinglyLinkedList{
         }
         return current;
     }
-    set(index, val){
+    // Change the value of a node, based on its position
+    set(index, val){ //accepts index and value
         var foundNode = this.get(index);
         if(foundNode){
             foundNode.val = val;
@@ -81,6 +97,7 @@ class SinglyLinkedList{
         }
         return false;
     }
+    // Insert a new node, instead updating -O(1)
     insert(index, val){
         if(index < 0 || index > this.length) return false;
         if(index === this.length) return !!this.push(val);
@@ -104,12 +121,14 @@ class SinglyLinkedList{
         this.length--;
         return removed;
     }
+    // Reverse in place - a common interview problem!
+    // we need current, next and previous
     reverse(){
         var node = this.head;
         this.head = this.tail;
         this.tail = node;
         var next;
-        var prev = null;
+        var prev = null; //need to make sure tail.next is null
         for(var i = 0; i < this.length; i++){
           next = node.next;
           node.next = prev;
@@ -118,6 +137,7 @@ class SinglyLinkedList{
         }
         return this;
       }
+      // Print shows that reverse() is working
       print(){
           var arr = [];
           var current = this.head
@@ -132,3 +152,5 @@ class SinglyLinkedList{
 var list = new SinglyLinkedList()
 // list.push("HELLO")
 // list.push("GOODBYE")
+
+
