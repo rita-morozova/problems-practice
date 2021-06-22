@@ -1,3 +1,10 @@
+// radix Sort is a special sorting algorithm that works on lists of numbers
+// It never makes comparisons between elements!
+// It exploits the fact thta information about the size of a number is encoded in the number of digits (more digits mean bigger numbers)
+// O(nk) - Time
+// O(n+k) - Space 
+// k - number of digits(average), n- length in array
+
 function getDigit(num, i) {
   return Math.floor(Math.abs(num) / Math.pow(10, i)) % 10;
 }
